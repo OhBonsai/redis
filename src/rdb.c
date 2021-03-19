@@ -2197,7 +2197,7 @@ robj *rdbLoadObject(int rdbtype, rio *rdb, sds key) {
         io.ver = (rdbtype == RDB_TYPE_MODULE) ? 1 : 2;
         /* Call the rdb_load method of the module providing the 10 bit
          * encoding version in the lower 10 bits of the module ID. */
-        void *ptr = NULL ? mt->rdb_load == NULL : mt->rdb_load(&io,moduleid&1023);
+        void *ptr = mt->rdb_load == NULL ? NULL : mt->rdb_load(&io,moduleid&1023);
         if (io.ctx) {
             moduleFreeContext(io.ctx);
             zfree(io.ctx);
