@@ -1376,7 +1376,7 @@ void streamPropagateXCLAIM(client *c, robj *key, streamCG *group, robj *groupnam
     decrRefCount(argv[13]);
 }
 
-/* We need this when we want to propoagate the new last-id of a consumer group
+/* We need this when we want to propagate the new last-id of a consumer group
  * that was consumed by XREADGROUP with the NOACK option: in that case we can't
  * propagate the last ID just using the XCLAIM LASTID option, so we emit
  *
@@ -3547,8 +3547,8 @@ NULL
     }
 }
 
-/* Validate the integrity stream listpack entries stracture. Both in term of a
- * valid listpack, but also that the stracture of the entires matches a valid
+/* Validate the integrity stream listpack entries structure. Both in term of a
+ * valid listpack, but also that the structure of the entires matches a valid
  * stream. return 1 if valid 0 if not valid. */
 int streamValidateListpackIntegrity(unsigned char *lp, size_t size, int deep) {
     int valid_record;
